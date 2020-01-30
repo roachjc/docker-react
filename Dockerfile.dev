@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# We don't need this because we are referring to the local app directory for purposes of development
+COPY . .
+
+CMD ["npm", "run", "start"]
